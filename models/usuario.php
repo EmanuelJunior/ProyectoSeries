@@ -24,22 +24,34 @@ class Usuario{
     }
 
     function getPassword() {
-        return $this->password;
+        return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
 
     function setNombre_completo($nombre_completo) {
-        $this->nombre_completo = $nombre_completo;
+        $this->nombre_completo = $this->db->real_escape_string($nombre_completo);
     }
 
     function setCelular($celular) {
-        $this->celular = $celular;
+        $this->celular = $this->db->real_escape_string($celular);
     }
 
     function setCorreo($correo) {
-        $this->correo = $correo;
+        $this->correo = $this->db->real_escape_string($correo);
     }
 
     function setPassword($password) {
         $this->password = $password;
+    }
+    
+    public function guardar(){
+        $sql = "INSERT INTO usuarios VALUES(NULL, '{$this->getNombre_completo()}', {$this->getCelular()}, '{$this->getCorreo()}', '{$this->getPassword()}')";
+        $guardar = $this->db->query($sql);
+        
+        $resultado = false;
+        if($gurdar){
+            $resultado = true;
+        }
+        
+        return $resultado;
     }
 }
