@@ -17,6 +17,7 @@ body{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    place-content: center center;
 }
 
 .header{
@@ -76,6 +77,11 @@ body{
     place-content: center center;
 }
 
+.item-registro-admin{
+    background: url(../img/fondo.jpg);
+    background-size: 100% 100%;
+}
+
 .item-registro > form{
     display: block;
     background: #333;
@@ -94,6 +100,18 @@ body{
     text-transform: uppercase;
 }
 
+.item-registro-admin > form h1{
+    color: gold;
+}
+
+.register_complete .item-registro-admin > form h1 {
+    color: #228b22;
+}
+
+.item-registro-admin-error h1{
+    color: #d84c4c !important;
+}
+
 .item-registro > form input[type='text'],
 .item-registro > form input[type='number'],
 .item-registro > form input[type='password']{
@@ -109,12 +127,68 @@ body{
     transition: box-shadow 500ms;
 }
 
+.item-registro-admin > form input[type='text'],
+.item-registro-admin > form input[type='number'],
+.item-registro-admin > form input[type='password']{
+    border-color: gold;
+    box-shadow: 0 0 2px gold, 0 0 7px gold;
+    background: #cab338;
+    border: 3px solid gold;
+    padding: 9px;
+    color: #444;
+    border-radius: 5px;
+}
+
+.register_complete .item-registro-admin > form input[type='text'],
+.register_complete .item-registro-admin > form input[type='number'],
+.register_complete .item-registro-admin > form input[type='password']{
+    box-shadow: 0 0 2px forestgreen, 0 0 7px forestgreen;
+    background: #258e25;
+    border: 3px solid #246d24;
+}
+
+.register_complete .item-registro-admin > form input[type='text']::placeholder,
+.register_complete .item-registro-admin > form input[type='number']::placeholder,
+.register_complete .item-registro-admin > form input[type='password']::placeholder{
+    color: #ccc;
+}
+
+.item-registro-admin-error input[type='text'],
+.item-registro-admin-error input[type='number'],
+.item-registro-admin-error input[type='password']{
+    border-color: #d84c4c !important;
+    box-shadow: 0 0 2px #d84c4c, 0 0 7px #d84c4c !important;
+    background: #cc6868 !important;
+    border: 3px solid #ff2828 !important;
+    color: #ccc !important;
+}
+
 .item-registro > form input[type='text']:focus,
 .item-registro > form input[type='number']:focus,
 .item-registro > form input[type='password']:focus{
     color: #999;
     border-color: darkred;
     box-shadow: 0 0 2px darkred, 0 0 7px darkred;
+}
+
+.item-registro-admin > form input[type='text']:focus,
+.item-registro-admin > form input[type='number']:focus,
+.item-registro-admin > form input[type='password']:focus{
+    border-color: gold;
+    box-shadow: 0 0 2px gold, 0 0 7px gold;
+    background: #cab338;
+    background: transparent;
+    border: 3px solid gold;
+    color: #aaa;
+}
+
+.item-registro-admin-error input[type='text']:focus,
+.item-registro-admin-error input[type='number']:focus,
+.item-registro-admin-error input[type='password']:focus{
+    border-color: #d84c4c !important;
+    box-shadow: 0 0 2px #d84c4c, 0 0 7px #d84c4c !important;
+    border: 3px solid #d84c4c !important;
+    color: #ccc !important;
 }
 
 .item-registro > form > div{
@@ -145,10 +219,58 @@ body{
     transition: background-color 500ms, color 500ms, box-shadow 800ms;
 }
 
+.item-registro-admin > form input[type='submit']{
+    padding: 9px;
+    text-transform: capitalize;
+    background-color: gold;
+    color: #444;
+    box-shadow: 0 0 2px yellow, 0 0 5px gold, 0 0 10px gold;
+    border: 3px solid gold;
+    border-radius: 5px;
+}
+
+.register_complete .item-registro-admin > form input[type='submit']{
+    background-color: #228b22;
+    color: #ccc;
+    box-shadow: 0 0 2px #008000, 0 0 5px #228b22, 0 0 10px #228b22;
+    border: 3px solid #228b22;
+}
+
+.register_complete .item-registro-admin > form input[type='submit']:hover{
+    border-color: #228b22;
+}
+
+.item-registro-admin-error input[type='submit']{
+    box-shadow: 0 0 2px #d84c4c, 0 0 5px #d84c4c, 0 0 10px #d84c4c !important;
+    border: 3px solid #d84c4c !important;
+    color: #ccc !important;
+    background-color: #d84c4c !important;
+}
+
 .item-registro > form input[type='submit']:hover{
     background-color: darkred;
     color: #aaa;
     box-shadow: 0 0 3px red, 0 0 8px darkred, 0 0 13px darkred;
+}
+
+
+.item-registro-admin > form input[type='submit']:hover{
+    background: transparent;
+    border: 3px solid gold;
+    box-shadow: unset;
+}
+
+.item-registro-admin-error input[type='submit']:hover{
+    border: 3px solid #d84c4c !important;
+    background: transparent !important;
+    box-shadow: unset !important;
+    color: #ccc !important;
+}
+
+.item-registro > form .enviar:hover{
+    background-color: forestgreen !important;
+    color: #aaa;
+    box-shadow: 0 0 3px green, 0 0 8px darkgreen, 0 0 13px forestgreen !important;
 }
 
 .item-logo{
@@ -158,6 +280,15 @@ body{
     flex-shrink: 0;    
     display: none;
 }
+
+.item-admin{
+    background: gold;
+}
+
+.item-admin-error{
+    background: #d84c4c !important;
+}
+
 
 .item-logo > img{
     width: 100%;
@@ -184,23 +315,71 @@ body{
     }
 
     .item-logo{
-        margin-top: 32px;
-        margin-right: 25px;
+        margin-top: 22px;
+        margin-right: 22px;
+        margin-bottom: 22px;
         border-radius: 5px;
         display: block;
-        height: 80%;
+        min-height: 80%;
+        height: auto;
         width: 50%;
     }
-    .item-registro > form{
-        height: 80%;
-        width: 40%;
-        margin-top: 32px;
-        margin-left: 25px;
 
+    .item-admin{
+        margin-left: 25px;
+        margin-right: inherit;
+        margin-top: auto;
+        margin-bottom: auto;
+        height: 520px;
+        width: 35%;
+    }
+
+    .register_complete .item-admin {
+        background: #228b22;
+    }
+
+    .item-registro > form{
+        height: auto;
+        width: 40%;
+        margin-top: 5px;
+        margin-left: 22px;
+        margin-bottom: 5px;
+
+    }
+
+    .item-registro-admin > form{
+        margin-right: 25px;
+        margin-left: inherit;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 60%;
+        height: 450px;
+        box-shadow: 0 0 10px yellow, 0 0 15px gold, 0 0 20px gold;
+        border-radius: 0px 5px 5px 0px;
+    }
+
+    .register_complete .item-registro-admin > form {
+        box-shadow: 0 0 10px #008000, 0 0 15px #008000, 0 0 20px #008000;
+    }
+
+    .item-registro-admin-error form{
+        box-shadow: 0 0 10px #d84c4c, 0 0 15px #d84c4c, 0 0 20px #d84c4c !important;
     }
 
     .item-registro > form h1 {
         margin: 35px auto;
+    }
+
+    .item-registro-admin > form h1{
+        color: gold;
+    }
+
+    .register_complete .item-registro-admin > form h1 {
+        color: #228b22;
+    }
+
+    .item-registro-admin-error h1 {
+        color: #d84c4c !important;
     }
 }
 
@@ -222,6 +401,10 @@ body{
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+    .item-registro-admin-error h1 {
+        color: #d84c4c !important;
+    }
     
     .item-logo{
         height: 90%;
@@ -229,3 +412,18 @@ body{
     }
 }
 
+.error::placeholder{
+    color: #b92121;
+}
+
+.gris::placeholder {
+    color: #ccc;
+}
+
+.gris_claro::placeholder {
+    color: #bbb;
+}
+
+.complete_usuario::placeholder{
+    color: forestgreen;
+}

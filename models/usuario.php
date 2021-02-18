@@ -44,11 +44,11 @@ class Usuario{
     }
     
     public function guardar(){
-        $sql = "INSERT INTO usuarios VALUES(NULL, '{$this->getNombre_completo()}', {$this->getCelular()}, '{$this->getCorreo()}', '{$this->getPassword()}')";
+        $sql = "INSERT INTO usuarios VALUES(NULL, 0, '{$this->getNombre_completo()}', {$this->getCelular()}, '{$this->getCorreo()}', '{$this->getPassword()}');";
         $guardar = $this->db->query($sql);
         
         $resultado = false;
-        if($gurdar){
+        if($guardar){
             $resultado = true;
         }
         
